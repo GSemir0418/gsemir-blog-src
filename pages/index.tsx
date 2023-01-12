@@ -1,16 +1,10 @@
-import axios from "axios"
-import { http } from "../http"
+import Link from "next/link"
 
 export default function Home() {
-  const handleBtnClick = () => {
-    http.get('http://localhost:4000/v1/post').then(res => {
-      console.log(res)
-    })
-  }
   return (
     <>
       <div>Gsemir Blog</div>
-      <p><button onClick={handleBtnClick}>get Posts</button></p>
+      <p><Link href={'/post/1'}>Post 1</Link></p>
     </>
   )
 }

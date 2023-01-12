@@ -1,11 +1,12 @@
 import Head from "next/head"
 import Link from "next/link"
 import Script from "next/script"
+import { Layout } from "../components/Layout"
 import { Profile } from "../components/Profile"
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>GSemir Blog</title>
       </Head>
@@ -20,6 +21,6 @@ export default function Home() {
       />
       <Profile />
       <p><Link href={'/post/1'}>Post 1</Link></p>
-    </>
+    </Layout>
   )
 }

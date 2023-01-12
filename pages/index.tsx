@@ -3,8 +3,12 @@ import Link from "next/link"
 import Script from "next/script"
 import { Layout } from "../components/Layout"
 import { Profile } from "../components/Profile"
-
-export default function Home() {
+import { getSortedBlogsData } from '../lib/blogs';
+import type { BlogDataType } from '../lib/blogs';
+type Props = {
+  blogsListData: BlogDataType[]
+}
+const Home: React.FC<Props> = ({ blogsListData }) => {
   return (
     <Layout>
       <Head>
@@ -20,7 +24,30 @@ export default function Home() {
         }}
       />
       <Profile />
-      <p><Link href={'/post/1'}>Post 1</Link></p>
+      <section>
+        <h2 >Blog</h2>
+        <ul >
+          {blogsListData.map(({ id, date, title }) => (
+            <li key={id}>
+              {title}
+              <br />
+              {id}
+              <br />
+              {date}
+            </li>
+          ))}
+        </ul>
+      </section>
     </Layout>
   )
+}
+export default Home
+
+export async function getStaticProps() {
+  const blogsListData = getSortedBlogsData();
+  return {
+    props: {
+      blogsListData,
+    },
+  };
 }

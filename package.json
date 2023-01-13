@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "PORT=4000 next start",
+    "export": "next export",
     "run": "next build && PORT=4000 next start",
     "lint": "next lint"
   },

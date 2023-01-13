@@ -3,6 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { formToJSON } from "axios";
 
 export type BlogDataType = {
   id: string;
@@ -76,4 +77,15 @@ export async function getBlogById(id: string) {
   };
 }
 
-// 获取全部 categories 
+// 获取全部 categories
+export function getAllCategories() {
+  const allMetaData = getSortedBlogsData();
+  const categoryList = allMetaData
+    .map((metaData) => metaData.categories)
+    .flat(1);
+  return Array.from(new Set(categoryList));
+}
+
+// 根据 category 获取文章列表 ids
+
+

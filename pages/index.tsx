@@ -29,7 +29,7 @@ const Home: React.FC<Props> = ({ blogsListData }) => {
         <ul >
           {blogsListData.map(({ id, date, title }) => (
             <li key={id}>
-              {title}
+              <Link href={`/post/${id}`}>{title}</Link>
               <br />
               {id}
               <br />

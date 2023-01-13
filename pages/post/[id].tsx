@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { Layout } from "../../components/Layout";
-import { BlogDataType, getAllBlogIds, getBlogDataById } from "../../lib/blogs";
+import { BlogDataType, getAllBlogIds, getBlogById } from "../../lib/blogs";
 
 const Article: NextPage<{ blogData: BlogDataType }> = ({ blogData }) => {
   return (
@@ -15,6 +15,7 @@ const Article: NextPage<{ blogData: BlogDataType }> = ({ blogData }) => {
       {blogData.id}
       <br />
       {blogData.date}
+      <div dangerouslySetInnerHTML={{ __html: blogData.contentHtml }} />
       <Link href="/">Back to home</Link>
     </Layout>
   )
@@ -35,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const blogData = getBlogDataById(params?.id as string);
+  const blogData = await getBlogById(params?.id as string);
   return {
     props: {
       blogData,

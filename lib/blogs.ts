@@ -3,7 +3,6 @@ import fs from "fs";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
-import { formToJSON } from "axios";
 
 export type BlogDataType = {
   id: string;
@@ -86,6 +85,19 @@ export function getAllCategories() {
   return Array.from(new Set(categoryList));
 }
 
-// 根据 category 获取文章列表 ids
+// 获取全部 categories (作为 getStaticPaths 返回值)
+export function getAllCategoryIds() {
+  const allMetaData = getSortedBlogsData();
+  const categoryList = Array.from(
+    new Set(allMetaData.map((metaData) => metaData.categories).flat(1))
+  );
+  return categoryList.map((item) => ({
+    params: { id: item },
+  }));
+}
 
-
+// 根据 category 获取文章列表
+export function getBlogListByCategory(id: string) {
+  const allMetaData = getSortedBlogsData();
+  return allMetaData.filter(metaData=>metaData.categories?.some(item=>item===id))
+}

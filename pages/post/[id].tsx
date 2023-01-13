@@ -15,7 +15,7 @@ const Article: NextPage<{ blogData: BlogDataType }> = ({ blogData }) => {
       {blogData.id}
       <br />
       {blogData.date}
-      <div dangerouslySetInnerHTML={{ __html: blogData.contentHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: blogData.contentHtml as string }} />
       <Link href="/">Back to home</Link>
     </Layout>
   )

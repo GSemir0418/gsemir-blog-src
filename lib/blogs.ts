@@ -2,36 +2,45 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from 'remark-html';
+import html from "remark-html";
 
-export type BlogDataType = { [key: string]: any };
+export type BlogDataType = {
+  id: string;
+  title: string;
+  date: string;
+  author?: string;
+  lastmod?: string;
+  draft?: string;
+  categories?: string[];
+  tags?: string[];
+  contentHtml?: string;
+};
 
 const blogsDirectory = path.join(process.cwd(), "blogs");
 
-// 按时间顺序获取全部博客meta数据
+// 按时间顺序获取全部博客 meta 数据
 export function getSortedBlogsData() {
   // 获取全部文件名
   const fileNames = fs.readdirSync(blogsDirectory);
 
-  const allPostsData: BlogDataType[] = fileNames.map((fileName) => {
+  const allBlogsData: BlogDataType[] = fileNames.map((fileName) => {
     // 删除.md后缀
     const id = fileName.replace(/\.md$/, "");
 
-    // 将blog内容读取并解析为字符串
+    // 将blog meta读取并解析为字符串
     const fullPath = path.join(blogsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // 使用 gray-matter 解析 metadata 部分
     const matterResult = matter(fileContents);
-    console.log("111", matterResult);
     // 整合数据与文件名
     return {
       id,
-      ...matterResult.data,
+      ...(matterResult.data as Omit<BlogDataType, "id">),
     };
   });
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  return allBlogsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
@@ -40,7 +49,7 @@ export function getSortedBlogsData() {
   });
 }
 
-// 获取全部blog名称（作为getStaticPaths返回值）
+// 获取全部 blog 名称（作为 getStaticPaths 返回值）
 export function getAllBlogIds() {
   const fileNames = fs.readdirSync(blogsDirectory);
   return fileNames.map((item) => {
@@ -48,7 +57,7 @@ export function getAllBlogIds() {
   });
 }
 
-// 根据id获取blogs数据
+// 根据 id 获取 blogs 数据
 export async function getBlogById(id: string) {
   const fullPath = path.join(blogsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -66,3 +75,5 @@ export async function getBlogById(id: string) {
     ...matterResult.data,
   };
 }
+
+// 获取全部 categories 

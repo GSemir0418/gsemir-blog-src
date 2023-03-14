@@ -1,0 +1,47 @@
+.container {
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    animation: showPage 4s;
+    .name {
+        p {
+            font-size: 5rem;
+            line-height: 1rem;
+            letter-spacing: 1px;
+            color: transparent;
+            font-weight: bolder;
+        }
+        // 背景色渐变
+        background-image:linear-gradient(135deg, rgb(227, 188, 82), rgb(12, 219, 238),rgb(24, 46, 65));
+        // 裁剪出文字
+        background-clip: text;
+        animation: rollColor 2s linear infinite alternate;
+    }
+    .footer {
+        border: 1px solid white;
+        min-width: 10rem;
+        display: flex;
+        justify-content: space-between;
+
+    }
+}
+
+@keyframes rollColor {
+    100% {
+        // 更改色相、模糊
+        filter: hue-rotate(360deg) blur(4px) brightness(30%)
+    }
+}
+
+@keyframes showPage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

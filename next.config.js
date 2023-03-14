@@ -14,6 +14,7 @@ const nextConfig = {
       },
     ];
   },
+  transpilePackages: ['react-syntax-highlighter'],
 };
 
 module.exports = nextConfig;

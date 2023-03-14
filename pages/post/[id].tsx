@@ -9,7 +9,7 @@ import ReactMarkdown from "react-markdown";
 
 const CodeBlock: React.FC<any> = (codeProps) => {
   const { inline, children } = codeProps
-  if(inline) return children[0]
+  if (inline) return <code>{ children[0]}</code>
   return (
     <SyntaxHighlighter
       style={dark}

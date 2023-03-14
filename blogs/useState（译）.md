@@ -37,9 +37,7 @@ tags: ["react", "useState"]
 - `useState` 是一个 Hook，所以只能在 React 组件顶层或者自定义 Hook 中调用，不可以在循环或者条件语句中调用。如果需要，请抽离出一个新组件来使用。
 - 严格模式下该语句会执行两次。如果 initialState 是一个纯函数，其中一个调用结果将被忽略。
 
-
-
-<hr>
+---
 
 ### `set` 函数, 例如 `setSomething(nextState)`
 
@@ -71,9 +69,7 @@ function handleClick() {
 
 - 严格模式下会执行两次。如果 nextState 是一个纯函数，其中一个调用结果将被忽略。
 
-
-
-<hr>
+---
 
 ## 用法
 
@@ -176,9 +172,7 @@ function Form() {
 }
 ```
 
-
-
-<hr>
+---
 
 ## 常见问题
 
@@ -218,9 +212,7 @@ console.log(count);     // 0
 console.log(nextCount); // 1
 ```
 
-
-
-<hr>
+---
 
 ### 我更新了state，但页面没有更新
 
@@ -246,9 +238,7 @@ setObj({
 > 1. `Object.is()` 与 `==` 不同。`==` 运算符在判断相等前对两边的变量（如果它们不是同一类型）进行**强制转换**（这种行为将 `"" == false` 判断为 `true`），而 `Object.is` 不会强制转换两边的值。
 > 2. `Object.is()` 与 `===` 也不相同。差别是它们对待**有符号的零**和 **NaN** 不同，例如，`===` 运算符（也包括 `==` 运算符）将数字 `-0` 和 `+0` 视为相等，而将 `Number.NaN` 与 `NaN` 视为不相等。
 
-
-
-<hr>
+---
 
 ### 报错：“Too many re-renders”
 
@@ -265,9 +255,7 @@ return <button onClick={handleClick}>Click me</button>
 return <button onClick={(e) => handleClick(e)}>Click me</button>
 ```
 
-
-
-<hr>
+---
 
 ### 我的初始化或更新函数运行了两次
 
@@ -286,9 +274,7 @@ return <button onClick={(e) => handleClick(e)}>Click me</button>
 >
 > 副作用往往存在于事件处理函数中，但因为事件处理函数不会在渲染时执行，所以事件处理函数可以不是纯函数。
 
-
-
-<hr>
+---
 
 ### 我尝试将state设置为一个函数，但它却被调用了
 

@@ -26,7 +26,7 @@ const Home: React.FC<Props> = ({ blogsListData }) => {
       <Profile />
       <section>
         <h2>Blog</h2>
-        <Link href={'/categories'}>Categories</Link>
+        <Link href={'/category'}>Categories</Link>
         <ul>
           {blogsListData.map(({ id, date, title }) => (
             <li key={id}>

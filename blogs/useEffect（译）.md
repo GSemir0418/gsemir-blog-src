@@ -7,9 +7,6 @@ draft: true
 categories: ["React文档"]
 tags: ["react", "useEffect"]
 ---
-
-# useEffect（译）
-
 `useEffect` 是一个React Hook，可以使组件与外部系统同步。
 
 ```react

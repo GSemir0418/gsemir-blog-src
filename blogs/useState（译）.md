@@ -7,9 +7,6 @@ draft: true
 categories: ["React文档"]
 tags: ["react", "useState"]
 ---
-
-# useState（译）
-
 > [useState • React (reactjs.org)](https://beta.reactjs.org/reference/react/useState)
 
 `useState` 是一个 React Hook，能够让我们在组件中添加 state 变量。

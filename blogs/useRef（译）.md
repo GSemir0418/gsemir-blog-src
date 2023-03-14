@@ -7,9 +7,6 @@ draft: true
 categories: ["React文档"]
 tags: ["react", "useRef"]
 ---
-
-# useRef（译）
-
 > [useRef • React (reactjs.org)](https://beta.reactjs.org/reference/react/useRef)
 
 `useRef` 是一个 React Hook ，可以让我们引用一个不参与渲染过程的值

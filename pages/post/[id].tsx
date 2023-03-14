@@ -3,6 +3,22 @@ import Head from "next/head";
 import Link from "next/link";
 import { Layout } from "../../components/Layout";
 import { BlogDataType, getAllBlogIds, getBlogById } from "../../lib/blogs";
+import { PrismAsync as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import ReactMarkdown from "react-markdown";
+
+const CodeBlock: React.FC<any> = (codeProps) => {
+  const { inline, children } = codeProps
+  if(inline) return children[0]
+  return (
+    <SyntaxHighlighter
+      style={dark}
+      language={'typescript'}
+    >
+      {children[0] as string}
+    </SyntaxHighlighter>
+  );
+};
 
 const Article: NextPage<{ blogData: BlogDataType }> = ({ blogData }) => {
   return (
@@ -10,12 +26,17 @@ const Article: NextPage<{ blogData: BlogDataType }> = ({ blogData }) => {
       <Head>
         <title>{blogData.title}</title>
       </Head>
-      {blogData.title}
       <br />
       {blogData.id}
       <br />
       {blogData.date}
-      <div dangerouslySetInnerHTML={{ __html: blogData.contentHtml as string }} />
+      {/* <div dangerouslySetInnerHTML={{ __html: blogData.contentHtml as string }} /> */}
+      <ReactMarkdown
+        className="markdown-body"
+        components={{code: CodeBlock}}
+      >
+        {blogData.contentHtml as string}
+      </ReactMarkdown>
       <Link href="/">Back to home</Link>
     </Layout>
   )

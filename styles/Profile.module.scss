@@ -1,39 +1,100 @@
 .container {
     height: 100vh;
-    background: #000;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #999;
     animation: showPage 4s;
+    // .name {
+    //     p {
+    //         font-size: 5rem;
+    //         line-height: 1rem;
+    //         letter-spacing: 1px;
+    //         color: transparent;
+    //         font-weight: bolder;
+    //     }
+    //     // 背景色渐变
+    //     background-image:linear-gradient(135deg, rgba(255, 0, 0, 0.112), rgba(255, 255, 255, 0.174),rgba(0, 0, 255, 0.243));
+    //     // 裁剪出文字
+    //     background-clip: text;
+    //     animation: rollColor 2s linear infinite alternate;
+    // }
     .name {
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+        transform-origin: bottom center;
+        transition: transform 0.5s ease-out;
         p {
-            font-size: 5rem;
+            font-size: 6rem;
             line-height: 1rem;
             letter-spacing: 1px;
-            color: transparent;
-            font-weight: bolder;
+            color: #88ada0;
+            font-weight: bolder; 
         }
-        // 背景色渐变
-        background-image:linear-gradient(135deg, rgb(227, 188, 82), rgb(12, 219, 238),rgb(24, 46, 65));
-        // 裁剪出文字
-        background-clip: text;
-        animation: rollColor 2s linear infinite alternate;
+    }
+    .info {
+        position: relative;
+        width: 400px;
+        height: 500px;
+        background-color: #e0d1a6;
+        border-radius: 6px;
+        box-shadow: 25px 25px #88ada0;
+        animation: move 4s ease-in-out infinite;
+        &::after, &::before {
+            position: absolute;
+            background-color: #e0d1a6;
+            box-shadow: 25px 25px #88ada0;
+            border-radius: 6px;
+            content: '';
+        }
+        &::before {
+            width: 200px;
+            height: 20px;
+            bottom: -35px;
+            animation: move2 4s ease-in-out infinite; 
+        }
+        &::after {
+            width: 100px;
+            height: 20px;
+            bottom: -70px;
+            animation: move3 4s ease-in-out infinite;
+        }
     }
     .footer {
-        border: 1px solid white;
-        min-width: 10rem;
+        min-width: 13rem;
+        margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
-
+        .blogIcon {
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            mask: url(../public/images/blog.svg) no-repeat center;
+        }
+        .githubIcon {
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            mask: url(../public/images/github.svg) no-repeat center;
+        }
+        .wechatIcon {
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            mask: url(../public/images/wechat.svg) no-repeat center;
+        }
+        
     }
 }
 
 @keyframes rollColor {
     100% {
         // 更改色相、模糊
-        filter: hue-rotate(360deg) blur(4px) brightness(30%)
+        filter: hue-rotate(1080deg) blur(4px) brightness(30%)
     }
 }
 
@@ -43,5 +104,21 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes move {
+    50% {
+        transform: translateY(-20px);
+    }
+}
+@keyframes move2 {
+    50% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes move3 {
+    50% {
+        transform: translateY(-10px);
     }
 }

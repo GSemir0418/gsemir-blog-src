@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import style from '../styles/Profile.module.scss'
 

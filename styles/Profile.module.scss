@@ -70,22 +70,19 @@
         display: flex;
         justify-content: space-between;
         .blogIcon {
-            background-color: white;
-            width: 40px;
-            height: 40px;
+            background-color: black;
             mask: url(../public/images/blog.svg) no-repeat center;
+            // mask-size: 40px 40px;
         }
         .githubIcon {
-            background-color: white;
-            width: 40px;
-            height: 40px;
+            background-color: black;
             mask: url(../public/images/github.svg) no-repeat center;
+            mask-size: 40px 40px;
         }
         .wechatIcon {
-            background-color: white;
-            width: 40px;
-            height: 40px;
+            background-color: black;
             mask: url(../public/images/wechat.svg) no-repeat center;
+            mask-size: 40px 40px;
         }
         
     }

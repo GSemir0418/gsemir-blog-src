@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - 装修列表页，分页，无滚动条
 - 列表标题特效
-- 首页图标跳转，svg特效
+- 全局 Header
 - 首页个人介绍
 - 整理 blogs 放到 tmp 中
 - 文章正文页面装修

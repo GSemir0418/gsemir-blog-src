@@ -11,8 +11,8 @@ const Home: React.FC<Props> = ({ blogsListData }) => {
   return (
     <>
       <Head><title>GSemir Blog</title></Head>
-      <Profile />
-      <Layout>
+      <Profile style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }} />
+      <Layout style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}>
         <BlogHome blogsListData={blogsListData} />
       </Layout>
     </>

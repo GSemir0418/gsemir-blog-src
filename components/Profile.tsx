@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { CSSProperties, useEffect, useRef } from 'react'
 import style from '../styles/Profile.module.scss'
-
-export const Profile = () => {
+interface Props {
+  style?: CSSProperties
+}
+export const Profile: React.FC<Props> = ({ style:s }) => {
   const profileRef = useRef<HTMLDivElement>(null)
   const nameRef = useRef<HTMLDivElement>(null)
   const handleClick = () => {
@@ -33,7 +35,7 @@ export const Profile = () => {
     }
   }, [])
   return (
-    <div className={style.container} ref={profileRef}>
+    <div className={style.container} style={s} ref={profileRef}>
       <div className={style.name} ref={nameRef}>
         <p>GSemir</p>
       </div>
@@ -51,7 +53,6 @@ export const Profile = () => {
       <div className={style.info}>
         <p>Some Info</p>
       </div>
-      {/* <Image alt="GSemir" width={100} height={100} src="images/profile.svg"/> */}
     </div>
   )
 }

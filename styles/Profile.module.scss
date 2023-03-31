@@ -1,9 +1,9 @@
 .container {
     height: 100vh;
     position: relative;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,11 +37,12 @@
         }
     }
     .info {
+        flex: 1;
         position: relative;
-        width: 400px;
-        height: 500px;
+        margin-bottom: 100px;
+        min-width: 30rem;
         background-color: #e0d1a6;
-        border-radius: 6px;
+        border-radius: 0.5rem;
         box-shadow: 25px 25px #88ada0;
         animation: move 4s ease-in-out infinite;
         &::after, &::before {
@@ -65,21 +66,28 @@
         }
     }
     .footer {
-        min-width: 13rem;
-        margin-bottom: 20px;
+        min-width: 30rem;
+        border: 1px solid red;
+        margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
         .blogIcon {
+            width: 20px;
+            height: 20px;
             background-color: black;
             mask: url(../public/images/blog.svg) no-repeat center;
-            // mask-size: 40px 40px;
+            mask-size: 40px 40px;
         }
         .githubIcon {
+            width: 20px;
+            height: 20px;
             background-color: black;
             mask: url(../public/images/github.svg) no-repeat center;
             mask-size: 40px 40px;
         }
         .wechatIcon {
+            width: 20px;
+            height: 20px;
             background-color: black;
             mask: url(../public/images/wechat.svg) no-repeat center;
             mask-size: 40px 40px;

@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## TODO
+
+- 装修列表页，分页，无滚动条
+- 列表标题特效
+- 首页图标跳转，svg特效
+- 首页个人介绍
+- 整理 blogs 放到 tmp 中
+- 文章正文页面装修

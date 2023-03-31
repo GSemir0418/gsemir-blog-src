@@ -10,20 +10,6 @@
     align-items: center;
     color: #999;
     animation: showPage 4s;
-    // .name {
-    //     p {
-    //         font-size: 5rem;
-    //         line-height: 1rem;
-    //         letter-spacing: 1px;
-    //         color: transparent;
-    //         font-weight: bolder;
-    //     }
-    //     // 背景色渐变
-    //     background-image:linear-gradient(135deg, rgba(255, 0, 0, 0.112), rgba(255, 255, 255, 0.174),rgba(0, 0, 255, 0.243));
-    //     // 裁剪出文字
-    //     background-clip: text;
-    //     animation: rollColor 2s linear infinite alternate;
-    // }
     .name {
         transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
         transform-origin: bottom center;
@@ -93,13 +79,6 @@
             mask-size: 40px 40px;
         }
         
-    }
-}
-
-@keyframes rollColor {
-    100% {
-        // 更改色相、模糊
-        filter: hue-rotate(1080deg) blur(4px) brightness(30%)
     }
 }
 
